@@ -1,0 +1,5 @@
+< 환경 >
+1. React, Scss
+2. REST API: json-server ( https://www.npmjs.com/package/json-server )
+
+
