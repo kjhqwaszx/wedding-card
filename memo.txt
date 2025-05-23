@@ -2,6 +2,12 @@
 1. React, Scss
 2. REST API: json-server ( https://www.npmjs.com/package/json-server )
 
+< 폰트 & 비디오 포맷 >
+
+- 비디오 포맷
+  * MP4: 최신 웹 브라우저 대부분과 호환되는 인터넷 친화적인 비디오 포맷. 품질이 좋고 파일 크기가 작아 인기 있는 포맷임
+  * WebM: 고화질 동영상을 손실없이 효과적으로 압축할 수 있는 고성능 비디오 포맷. (지원 브라우저가 제한적)
+  -> WebM 과 MP4 포맷을 함께 사용할 수 있다. ( 브라우저가 WebM을 지원하지 않으면 MP4 포맷으로 )
 
 < Search >
 1. callBack, Promise, async & await
