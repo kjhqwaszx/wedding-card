@@ -8,13 +8,13 @@ import { Wedding } from '@models/wedding'
 import ImageGallery from '@components/sections/ImageGallery'
 import Intro from '@components/sections/Intro'
 import Invitation from '@components/sections/Invitation'
+import Calendar from '@components/sections/Calendar'
 
 const cx = classNames.bind(styles)
 function App() {
   const [wedding, setWedding] = useState<Wedding | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-
   //  Data Fetching
   useEffect(() => {
     fetch('http://localhost:8888/wedding')
@@ -69,6 +69,7 @@ function App() {
       ></Intro>
       <Invitation message={invitation} />
       <ImageGallery images={galleryImages} />
+      <Calendar date={date} />
       {JSON.stringify(wedding)}
     </div>
   )
