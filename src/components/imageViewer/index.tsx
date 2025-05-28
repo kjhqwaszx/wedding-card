@@ -3,6 +3,7 @@ import styles from './ImageViewer.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import './swiper.css'
+import generateImageUrl from '@/utils/generateImageUrl'
 const cx = classnames.bind(styles)
 
 function ImageViewer({
@@ -30,7 +31,22 @@ function ImageViewer({
       >
         {images.map((image, idx) => (
           <SwiperSlide key={idx}>
-            <img src={image} alt={`사진첩 이미지${idx}`} />
+            <picture>
+              <source
+                srcSet={generateImageUrl({
+                  filename: image,
+                  format: 'webp',
+                })}
+                type="image/webp"
+              />
+              <img
+                src={generateImageUrl({
+                  filename: image,
+                  format: 'jpg',
+                })}
+                alt="이미지"
+              />
+            </picture>
           </SwiperSlide>
         ))}
       </Swiper>
