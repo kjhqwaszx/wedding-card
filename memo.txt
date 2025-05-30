@@ -1,9 +1,12 @@
 < 환경 >
 1. React, Scss
 2. REST API: json-server ( https://www.npmjs.com/package/json-server )
+3. 최적화 포인트 : 폰트, 이미지, 동영상 최적화 및 useMemo ( Calendar Component )
 
 < 폰트 & 비디오 포맷 >
-
+- 폰트 포맷
+  * WOFF
+  * WOFF2
 - 비디오 포맷
   * MP4: 최신 웹 브라우저 대부분과 호환되는 인터넷 친화적인 비디오 포맷. 품질이 좋고 파일 크기가 작아 인기 있는 포맷임
   * WebM: 고화질 동영상을 손실없이 효과적으로 압축할 수 있는 고성능 비디오 포맷. (지원 브라우저가 제한적)
@@ -39,7 +42,6 @@ picture 태그를 통해 우선적으로 Webp 을 먼저 사용하고, 지원하
     * fallback: 0.1초 정도 block 이 발생, 3초 이내로 다운받지 못하면, 다운 여부와 상관없이 기본 폰트 노출
     * optional: fallback과 비슷. 폰트가 다운로드 받는 시간이 너무 오래걸리면 브라우저가 연결을 취소
 
-
  - FOUT (flash of unstyled text)
  폰트가 다운로드 되기 전에는 기본 폰트를 노출한다. 다운로드 후 교체
     * swap: 폰트를 다운받기 전에는 기본 폰트를 노출하고 다운로드 후 폰트 교체
@@ -66,7 +68,6 @@ picture 태그를 통해 우선적으로 Webp 을 먼저 사용하고, 지원하
 
 3. 불필요한 리렌더링 제거
   - devtools
-
-
-
-
+  - memo 사용
+  memo 는 props 가 변경되지 않으면 리렌더링 하지 않는 기능이다.
+  Calendar 의 경우 변하지 않는 date props 만 받아서 렌더링 해주는데, 부모 state 가 바뀌면 불필요하게 리랜더링 된다.
